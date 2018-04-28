@@ -24,6 +24,15 @@ http://localhost:8080/view/index.html
 
 ---
 
+## Heroku
+
+This app is deployed on heroku. Please visit the link below:
+```
+https://hidden-fortress-16745.herokuapp.com/view/index.html
+```
+
+---
+
 ## License
 
     Copyright 2018 Akshay Kumar

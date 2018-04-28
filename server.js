@@ -5,9 +5,11 @@ var http = require('http').Server(app);
 var server = app.listen(process.env.PORT || 8080, function () {
   var host = 'localhost' // server.address().address
   var port = server.address().port
-  console.log("App listening at http://%s:%s", host, port)
+  console.log("App is listening at http://%s:%s", host, port)
 });
 
+// Initialize Socket.io after creating the server to avoid 
+// port issues while deploying on a server like heroku. 
 var io = require('socket.io').listen(server);
 
 // Static route to show the user interface (index.html)
