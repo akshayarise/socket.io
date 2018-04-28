@@ -1,14 +1,14 @@
 {
-  "name": "Socket.io",
+  "name": "socket.io-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A demo to implement the Socket.io.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akshayarise/socket.io.git"
+    "url": "https://github.com/akshayarise/socket.io.git"
   },
   "author": "Akshay Kumar",
   "license": "MIT",

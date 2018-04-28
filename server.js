@@ -1,9 +1,17 @@
 var app = require('express')();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+
+// Listen at 8080 port
+var server = app.listen(process.env.PORT || 8080, function () {
+  var host = 'localhost' // server.address().address
+  var port = server.address().port
+  console.log("App listening at http://%s:%s", host, port)
+});
+
+var io = require('socket.io').listen(server);
 
 // Static route to show the user interface (index.html)
-// at http://localhost:3000/view/index.html.
+// at http://localhost:8080/view/index.html.
 app.get('/view/*', (req, res) => {
   res.sendFile(req.params[0], {
     root: './src/view/'
@@ -16,9 +24,4 @@ io.on('connection', function(socket){
     // Publish data to the subscribers (clients).
     io.emit('slide', msg);
   });
-});
-
-// Listen app at 3000 port.
-http.listen(3000, function() {
-  console.log('listening on *:3000');
 });

@@ -14,11 +14,11 @@ $ npm install
 ```bash
 $ node server.js
 ```
-> App will start listening at port 3000.
+> App will start listening at port 8080.
 
 ### Open multiple clients at:
 ```
-http://localhost:3000/view/index.html
+http://localhost:8080/view/index.html
 ```
 > Select different slides in any of the clients. The change will reflect in all the opened clients.
 
