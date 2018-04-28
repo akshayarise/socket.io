@@ -1,0 +1,23 @@
+{
+  "name": "Socket.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshayarise/socket.io.git"
+  },
+  "author": "Akshay Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akshayarise/socket.io/issues"
+  },
+  "homepage": "https://github.com/akshayarise/socket.io",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
+  }
+}

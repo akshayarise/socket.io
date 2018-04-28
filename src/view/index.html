@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Socket.IO chat</title>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="./css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="./css/styles.css"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+
+  // Subscribe to Socket.io 'on' listener.
+  socket.on('slide', function(msg) {
+    // Receive slide id from the server.
+    console.log('Received', msg);
+
+    // Uncheck all other slides.
+    var all = document.getElementsByTagName("a");
+    for (var i = 0, max = all.length; i < max; i++) {
+      all[i].text = 'Select';
+    }
+
+    // Mark the received slide id as checked.
+    document.getElementById(msg).text = 'Selected';
+  });
+
+  function selected(button) {
+    // Emit slide id to the server.
+    console.log('Emitted', button.id);
+
+    // Publish data to the server via Socket.io.
+    socket.emit('slide', button.id);
+  }
+</script>
+
+<body>
+  <!--All the slides-->
+  <div class="slide">
+    <div class="child row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://source.unsplash.com/T1-nZX0OPvI">
+            <span class="card-title">Slide 1</span>
+          </div>
+          <div class="card-content">
+          </div>
+          <div class="card-action">
+            <a nohref id="one" class="waves-effect waves-light btn" onclick="selected(this)">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="child row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://source.unsplash.com/Eb-noaTwHiU">
+            <span class="card-title">Slide 2</span>
+          </div>
+          <div class="card-content">
+          </div>
+          <div class="card-action">
+            <a nohref id="two" class="waves-effect waves-light btn" onclick="selected(this)">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="child row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://source.unsplash.com/7kr1csqUgDE">
+            <span class="card-title">Slide 3</span>
+          </div>
+          <div class="card-content">
+          </div>
+          <div class="card-action">
+            <a nohref id="three" class="waves-effect waves-light btn" onclick="selected(this)">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="child row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://source.unsplash.com/6JITxzG2h9k">
+            <span class="card-title">Slide 4</span>
+          </div>
+          <div class="card-content">
+          </div>
+          <div class="card-action">
+            <a nohref id="four" class="waves-effect waves-light btn" onclick="selected(this)">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="child row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://source.unsplash.com/QHZn3-0bbEM">
+            <span class="card-title">Slide 5</span>
+          </div>
+          <div class="card-content">
+          </div>
+          <div class="card-action">
+            <a nohref id="five" class="waves-effect waves-light btn" onclick="selected(this)">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="child row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="http://source.unsplash.com/1WQ5RZuH9xo">
+            <span class="card-title">Slide 6</span>
+          </div>
+          <div class="card-content">
+          </div>
+          <div class="card-action">
+            <a nohref id="six" class="waves-effect waves-light btn" onclick="selected(this)">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="./js/materialize.min.js"></script>
+</body>
+
+</html>
